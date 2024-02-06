@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Open Graph Related Stuff-->
+   <title>Generative Models for Computer Vision</title>
+    <link rel="stylesheet" href="data/foundation.css">
+    <link rel="stylesheet" href="data/main.css">
+
+<style type="text/css">
+.schedule table {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.schedule tr:hover {
+    background-color: #D3D3D3;
+}
+
+.schedule img {
+    max-height: 95px;
+    max-width: 140px;
+    margin-right: 2px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 50%;
+}
+
+.abstract-content {
+    display: none;
+    padding: 5px;
+}
+
+.disclaimer {
+    padding-left: 25px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 16px;
+}
+.disclaimer b {
+    font-weight: bold !important;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  line-height: 23px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+	
+</style></head>
+
+
+<body class="off-canvas hide-extras" style="min-width:1300px; min-height:750px;">
+   <!-- <header>
+        <div class="row">
+            <a href="https://generative-vision.github.io/workshop-CVPR-23/">
+			<img style="height: 160px; position:absolute; top:280px; right:26px;" src="data/cvpr-2023-logo.jpeg" alt="logo"></a>
+            <h1><img style="height: 200px;" src="./static/eccv2022/img/cvinthewild_logo.jpg" alt="logo" /><br></h1> 
+            <br>
+        </div>
+    </header>-->
+
+    <section role="main" style="padding: 1em;">
+        <div class="row">
+            <p style="font-size:50px; color:black; font-weight: 50" align="center">Generative Models for Computer Vision
+                <br>
+                <span style="font-size:30px; color:black; font-weight: 50" align="center">CVPR 2023, June 18th<br> </span>
+
+<!--                  <span style="font-size:20px; color:gray; font-weight: 30" align=center>9:00am-6:00pm Israeli Time  ||  11:00pm (October 22)-8:00am Pacific Time  ||  2:00pm-11:00pm Beijing Time</span>   -->             
+                <!-- <br> -->
+                <!-- <br> -->
+                <!-- <span style="font-size:20px; color:black; font-weight: 400" align=center>Zoom and Gatherly links on ECCV 2022 website: <a target="_blank" href="https://www.eventscribe.net/2021/2021CVPR/agenda.asp?startdate=6/19/2021&enddate=6/19/2021&BCFO=M&pfp=Workshops&mode=&tn=&cpftwo=&custwo=&pta=/">Link</a> <br> Navigate to: Workshops -> Sat, October 23 -> Search for "Computer Vision in the Wild" workshop entry</b></span> -->
+
+            </p>
+
+	<div class="row">
+                <h1 style="font-size:30px; color:grey; font-weight: 200">Invited Speakers</h1>
+<!--                 <img src="data/speakers.jpg" > -->
+        </div>
+		
+	    <div style="text-align: center;">
+
+	    <div class="instructor2">
+		<a href="http://web.mit.edu/phillipi/">
+		    <div><img src="data/phillip.png"></div>
+		    <div>
+			<p style = "margin:4px">Phillip Isola</p>
+			<p style = "margin:4px">MIT</p>
+		    </div>
+		</a>
+	    </div>
+
+
+	    <div class="instructor2">
+		<a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/kanazawa.html">
+		    <div><img src="data/angjoo.jpeg"></div>
+		    <div>
+			    <p style = "margin:4px">Angjoo Kanazawa</p>
+			    <p style = "margin:4px">UC Berkeley</p>
+		    </div>
+		</a>
+	    </div>
+
+
+	    <div class="instructor2">
+		<a href="https://chrirupp.github.io/">
+		    <div><img src="data/rupprecht.jpeg"></div>
+		    <div>
+			    <p style = "margin:4px">Christian Rupprecht</p>
+			    <p style = "margin:4px">Oxford University</p>
+		    </div>
+		</a>
+	    </div>			
+			
+	    <div class="instructor2">
+		<a href="https://stanford.edu/~gordonwz/">
+		    <div><img src="data/gordon.jpg"></div>
+		    <div>
+			    <p style = "margin:4px">Gordon Wetzstein</p>
+			    <p style = "margin:4px">Stanford University</p>
+		    </div>
+		</a>
+	    </div>
+
+	    <div class="instructor2">
+		<a href="http://shubhtuls.github.io/">
+		    <div><img src="data/shubham.jpg"></div>
+		    <div>
+			    <p style = "margin:4px">Shubham Tulsiani</p>
+			    <p style = "margin:4px">CMU</p>
+		    </div>
+		</a>
+	    </div>
+			
+			
+
+			
+			
+	
+			<br>
+			<br>
+
+
+			
+	    <div class="instructor2">
+		<a href="https://www.vincentsitzmann.com/">
+		    <div><img src="data/vincent.jpeg"></div>
+		    <div>
+			    <p style = "margin:4px">Vincent Sitzmann</p>
+			    <p style = "margin:4px">MIT</p>
+		    </div>
+		</a>
+	    </div>	
+			
+			
+
+	    <div class="instructor2">
+		<a href="https://www.3dunderstanding.org/">
+		    <div><img src="data/angela.jpeg"></div>
+		    <div>
+			    <p style = "margin:4px">Angela Dai</p>
+			    <p style = "margin:4px">TUM</p>
+		    </div>
+		</a>
+	    </div>
+
+			
+	    <div class="instructor2">
+		<a href="https://ommer-lab.com/people/ommer/">
+		    <div><img src="data/bjorn.jpeg"></div>
+		    <div>
+			    <p style = "margin:4px">Björn Ommer</p>
+			    <p style = "margin:4px">LMU</p>
+		    </div>
+		</a>
+	    </div>
+			
+			
+	    <div class="instructor2">
+		<a href="https://taiya.github.io/">
+		    <div><img src="data/andrea.png"></div>
+		    <div>
+			    <p style = "margin:4px">Andrea Tagliasacchi</p>
+			    <p style = "margin:4px">SFU</p>
+		    </div>
+		</a>
+	    </div>				
+			
+			
+	    <div class="instructor2">
+		<a href="https://www.cs.jhu.edu/~ayuille/">
+		    <div><img src="data/alan.jpeg"></div>
+		    <div>
+			    <p style = "margin:4px">Alan Yuille</p>
+			    <p style = "margin:4px">JHU</p>
+		    </div>
+		</a>
+	    </div>			
+		
+		    
+	<hr>	    
+	<br>
+			
+			
+	<div style="text-align: left;">
+			
+			
+			
+<!-- 	<div class="row"> -->
+
+
+        <div class="row">
+            <h1 style="font-size:30px; color:grey; font-weight: 200">Overview</h1>
+            <div class="large-12 columns" style="text-align:left;">
+<!--                 <p style="font-size:15px; font-weight: 400; text-align:left">   -->
+	    	
+		<p style="font-size:15px; font-weight: 400; text-align:justify" align="justify">
+Recent advances in generative modeling leveraging generative adversarial networks, auto-regressive models, neural fields and diffusion 
+			models have enabled the synthesis of near photorealistic images, drastically increasing the visibility and popularity 
+			of generative modeling across the computer vision research community. However, these impressive advances in generative 
+			modeling have not yet found wide adoption in computer vision for visual recognition tasks. In this workshop, we aim to 
+			bring together researchers from the fields of image synthesis and computer vision to facilitate discussions and progress 
+			at the intersection of those two subfields. We investigate the question: "How can visual recognition benefit from the advances 
+			in generative image modeling?". We invite a diverse set of experts to discuss their recent research results and future directions 
+			for generative modeling and computer vision, with a particular focus on the intersection between image synthesis and visual 
+			recognition. We hope this workshop will lay the foundation for future development of generative models for computer vision tasks.
+                </p>
+				
+            </div>
+		
+	<div style="text-align: center;">
+		<img src="data/overview.jpg" width="850"><br>
+	</div>
+		
+	<hr>	
+	</div>
+		
+		
+		
+
+<!-- <div style="text-align: left;"> -->
+
+<div class="row">
+		<h1 style="font-size:30px; color:grey; font-weight: 200">Preliminary Schedule</h1>
+<div class="large-12 columns" style="text-align:left;">
+<table>
+<thead>
+<tr>
+<th>18th of June, UTC-7</th>
+<th> </th>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8:30</td>
+<td><strong>Opening</strong></td>
+<td>Adam Kortylewski</td>
+</tr>
+<tr>
+<td>8:45</td>
+<td><strong>Invited talk #1</strong></td>
+<td>Alan Yuille: Analysis by Synthesis</td>
+</tr>
+<tr>
+	<td>9:15</td>
+	<td><strong>Invited talk #2</strong></td>
+	<td>Angjoo Kanazawa: Editing 3D Scenes and Modeling 3D Social Proxemics with Generative Models</td>
+	</tr>
+<tr>
+<td>9:45</td>
+<td><strong>Invited talk #3</strong></td>
+<td>Björn Ommer: Why This is (Not) the End of Research in Generative AI: Stable Diffusion & the Revolution in Visual Synthesis</td>
+</tr>	  
+<tr>
+<td>10:15</td>
+<td><strong>Coffee Break</strong></td>
+</tr>
+<tr>
+<td>10:30</td>
+<td><strong>Invited talk #4</strong></td>
+<td>Andrea Tagliasacchi</td>
+</tr>
+<tr>
+<td>11:00</td>
+<td><strong>Invited talk #5</strong></td>
+<td>Gordon Wetzstein: A Trip Down the Generative Graphics Pipeline</td>
+</tr>
+<tr>
+	<td>11:30</td>
+	<td><strong>Panel Discussion #1</strong></td>
+	<td>Invited Speakers #1 - #5</td>
+	</tr>
+<tr>
+<td>12:00</td>
+<td><strong>Lunch Break</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>12:45</td>
+<td><strong>Poster Session</strong></td>
+<td>West Building Poster 39 - 72</td>
+</tr>
+<tr>
+<td>13:45</td>
+<td><strong>Invited talk #6</strong></td>
+<td>Angela Dai</td>
+</tr>
+<tr>
+	<td>14:15</td>
+	<td><strong>Invited talk #7</strong></td>
+	<td>Phillip Isola: Generative Models as Data++</td>
+	</tr>
+<tr>
+<td>14:45</td>
+<td><strong>Invited talk #8</strong></td>
+<td>Vincent Sitzmann</td>
+</tr>
+<tr>
+<td>15:15</td>
+<td><strong>Coffee Break</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>15:45</td>
+<td><strong>Invited talk #9</strong></td>
+<td>Christian Rupprecht: Extracting Supervision from Generative Models</td>
+</tr>
+<tr>
+<td>16:15</td>
+<td><strong>Invited talk #10</strong></td>
+<td>Shubham Tulsiani: A Probabilistic Approach to 3D Inference</td>
+</tr>
+<tr>
+<td>16:45</td>
+<td><strong>Panel Discussion #2</strong></td>
+<td>Invited Speakers #6 - #10</td>
+</tr>
+<tr>	
+<td>17:15</td>
+<td><strong>Closing Remarks</strong></td>
+<td>Adam Kortylewski</td>
+</tr>
+</tbody>
+</table>
+</div>
+	<hr>
+</div>
+		
+
+<div class="row">
+                    <h1 style="font-size:30px; color:grey; font-weight: 200">Call for Papers</h1>
+	<div class="large-12 columns" style="text-align:left;">
+		    <ul style="font-size:15px;">
+			    <b>Submission site:</b> <a href="https://cmt3.research.microsoft.com/GCV2023/">https://cmt3.research.microsoft.com/GCV2023/</a>. <br>
+			    <b>Author kit:</b> <a href="https://media.icml.cc/Conferences/CVPR2023/cvpr2023-author_kit-v1_1-1.zip">CVPR Author KIT</a>.<br>
+			    We invite submissions of both <b>short and long papers</b> (4 pages and 8 pages respectively excluding references). The long papers will be included in the proceedings of CVPR. Potential topics include but are not limited to:
+                        <br>
+                    
+                        <li style="margin-left:30px">
+                            Advances in generative image models
+                        </li>
+                        <li style="margin-left:30px">
+                            Inversion of generative image models
+                        </li>
+                        <li style="margin-left:30px">
+                            Training computer vision with realistic synthetic images
+                        </li>
+                        <li style="margin-left:30px">
+                            Benchmarking computer vision with generative models
+                        </li>
+                        <li style="margin-left:30px">
+                            Analysis-by-synthesis / render-and-compare approaches for visual recognition
+                        </li>
+                        <li style="margin-left:30px">
+                            Self-supervised learning with generative models
+                        </li>
+                        <li style="margin-left:30px">
+                            Adversarial attacks and defenses with generative models
+                        </li>						
+                        <li style="margin-left:30px">
+                            Out-of-distribution generalization and detection with generative models
+                        </li>
+                        <li style="margin-left:30px">
+                            Ethical considerations in generative modeling, dataset and model biases
+                        </li>						
+                </ul>         
+	</div>
+		
+                    <div class="large-12 columns" style="text-align:left;">
+                        <div class="large-12 columns" style="text-align:left;">
+                            <p style="font-size:15px; font-weight: 200; border-style: solid;
+                                          border-width: 1px; text-align:justify; padding:5px; width:85%">
+                                <code>
+								 <!-- <span style="width:40%; margin:5px; display:inline-block;">TBA</span>-->
+								<span style="width:40%; margin:5px; display:inline-block;">Paper Submission Deadline</span>
+                                        <span style="display:inline-block; margin-left:10px;">11:59 PM, March 23 (Anywhere on Earth)</span><br>
+ 								<span style="width:40%; margin:5px; display:inline-block;">Decisions</span>
+                                        <span style="display:inline-block; margin-left:10px;">11:59 PM, April 3 (Anywhere on Earth)</span><br>
+        					<span style="width:40%; margin:5px; display:inline-block;">Camera-Ready</span>
+                                        <span style="display:inline-block; margin-left:10px;">11:59 PM, April 8 (Anywhere on Earth)</span><br>
+                                    </code></p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+<div class="row">
+		
+		
+		
+
+	
+<div class="row">
+      <h1 style="font-size:30px; color:grey; font-weight: 200">Accepted Papers</h1>
+	<div class="large-12 columns" style="text-align:left;">		
+		<ul style="font-size:15px;">
+		    <font size="3.5"><b>Long Papers:</b></font>
+			<li style="margin-left:30px">
+				Please refer to <a href="https://openaccess.thecvf.com/CVPR2023_workshops/GCV">https://openaccess.thecvf.com/CVPR2023_workshops/GCV</a>. <br>
+			</li>
+			<li style="margin-left:30px">
+                            	<b>Text to Graphics by Program Synthesis with Error Correction</b> [<a href="data/56.pdf">Paper</a>]<br>
+				Ivan Nikitovic (Boston University); Trisha C Anil (Boston University); Showndarya Madhavan (Boston University); 
+				Arvind Raghavan (Columbia University); Zad Chin (Harvard University); Alexander E Siemenn (Massachusetts Institute of Technology); 
+				Saisamrit Surbehera (Columbia University); Yann Hicke (Cornell University); Ed Chien (Boston University); 
+				Ori Kerret (Ven Commerce); Tonio Buonassisi (MIT); Armando Solar-Lezama (MIT); Iddo Drori (MIT)*
+                        </li>
+		    <font size="3.5"><b>Short Papers:</b></font>
+                        <li style="margin-left:30px">
+                            	<b>Memory Efficient Diffusion Probabilistic Models via Patch-based Generation</b> [<a href="data/9.pdf">Paper</a>]<br>
+				Shinei Arakawa (Waseda University)*; Hideki Tsunashima (National Institute of Advanced Industrial Science and Technology (AIST)); 
+					Daichi Horita (The University of Tokyo); Keitaro Tanaka (Waseda University); Shigeo Morishima (Waseda Research Institute for Science and Engineering)
+                        </li>
+                        <li style="margin-left:30px">
+				<b>Intra-Source Style Augmentation for Improved Domain Generalization</b> [<a href="data/12.pdf">Paper</a>]<br>
+				Yumeng Li (Bosch Center for Artificial Intelligence)*; Dan Zhang (Bosch Center for Artificial Intelligence); Margret Keuper (University of Siegen, 
+				Max Planck Institute for Informatics); Anna Khoreva (Bosch Center for Artificial Intelligence)
+                        </li>
+                        <li style="margin-left:30px">
+				<b>A Structure-Guided Diffusion Model for Large-Hole Diverse Image Completion</b> [<a href="data/22.pdf">Paper</a>]<br>
+				Daichi Horita (The University of Tokyo)*; Jiaolong Yang (Microsoft Research); Dong Chen (Microsoft Research Asia); Yuki Koyama (National 
+				Institute of Advanced Industrial Science and Technology (AIST)); Kiyoharu Aizawa (The University of Tokyo)
+                        </li>
+			<li style="margin-left:30px">
+				<b>Debiasing Scores and Prompts of 2D Diffusion for Robust Text-to-3D Generation</b> [<a href="data/23.pdf">Paper</a>]<br>
+				Susung Hong (Korea University)*; Donghoon Ahn (Korea Unviersity); Seungryong Kim (Korea University)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Constructive Assimilation: Boosting Contrastive Learning Performance through View Generation Strategies</b> [<a href="data/27.pdf">Paper</a>]<br>
+				Ligong Han (Rutgers University)*; Seungwook Han (MIT-IBM Watson AI Lab, IBM Research); Shivchander Sudalairaj (MIT-IBM Watson AI Lab); 
+				Charlotte Loh (MIT); Rumen R Dangovski (MIT); Fei Deng (Rutgers University); Pulkit Agrawal (MIT); Dimitris N. Metaxas (Rutgers); 
+				Leonid Karlinsky (IBM-Research); Lily Weng (UCSD); Akash Srivastava (MIT-IBM, University Of Edinburgh)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Self-Predicted Depth-Aware Guidance with Diffusion Models</b> [<a href="data/28.pdf">Paper</a>]<br>
+				Gyeongnyeon Kim (Korea University )*; Wooseok Jang (Korea University); Gyuseong Lee (Korea University); 
+				Susung Hong (Korea University); Junyoung Seo (Korea University); Seungryong Kim (Korea University)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Happy People -- Image Synthesis as Black-Box Optimization Problem in the Discrete Latent Space of Deep Generative Models</b> [<a href="data/29.pdf">Paper</a>]<br>
+				Steffen Jung (MPII)*; Jan Christian Schwedhelm (University of Mannheim); Claudia Schillings (FU Berlin); Margret Keuper (University of Siegen, Max Planck Institute for Informatics)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Object-Centric Slot Diffusion for Unsupervised Compositional Generation</b> [<a href="data/33.pdf">Paper</a>]<br>
+				Jindong Jiang (Rutgers University)*; Fei Deng (Rutgers University); Gautam Singh (Rutgers University); Sungjin Ahn (KAIST)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Visual Chain-of-Thought Diffusion Models</b> [<a href="data/43.pdf">Paper</a>]<br>
+				William Harvey (University of British Columbia)*; Frank Wood (University of British Columbia)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Distilling the Knowledge in Diffusion Models</b> [<a href="data/46.pdf">Paper</a>]<br>
+				Tim Dockhorn (University of Waterloo)*; Robin Rombach (Heidelberg University); Andreas Blattmann (Heidelberg University); Yaoliang Yu (University of Waterloo)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Scaling Robot Learning with Semantically Imagined Experience</b> [<a href="data/48.pdf">Paper</a>]<br>
+				Tianhe Yu (Google Brain)*; Ted Xiao (Google); Austin Stone (Google); Jonathan Tompson (Google); Anthony Brohan (Google Research); Su Wang (Google AI Language); Jaspiar Singh 
+				(Google); Clayton Tan (Google); Jodilyn Peralta (Google); Brian Ichter (Google Brain); Karol Hausman (Google Brain); Fei Xia (Google Inc)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Semi-Supervised Training of Conditional Score Models</b> [<a href="data/52.pdf">Paper</a>]<br>
+				Chandramouli Shama Sastry (Dalhousie University/Vector Institute)*; Sri Harsha Dumpala (Dalhousie University/Vector Institute); Sageev Oore (Dalhousie University and Vector Institute)
+                        </li>	
+			<li style="margin-left:30px">
+				<b>Multi-task View Synthesis with Neural Radiance Fields</b> [<a href="data/58.pdf">Paper</a>]<br>
+				Shuhong Zheng (University of Illinois at Urbana-Champaign)*; Zhipeng Bao (Carnegie Mellon University); Martial Hebert (Carnegie Mellon School of Computer Science); 
+				Yu-Xiong Wang (University of Illinois at Urbana-Champaign)
+                        </li>		
+		        <li style="margin-left:30px">
+				<b>Putting People in Their Place: Affordance-Aware Human Insertion into Scenes</b> [<a href="data/60.pdf">Paper</a>]<br>
+				Sumith Kulal (Stanford University)*; Tim Brooks (UC Berkeley); Alex Aiken (Stanford University); Jiajun Wu (Stanford University); Jimei Yang (Adobe); Jingwan Lu (Adobe Research ); 
+				Alexei A Efros (UC Berkeley); Krishna Kumar Singh (Adobe Research)
+                        </li>	
+		    <font size="3.5"><b>Posters:</b></font>
+			<li style="margin-left:30px">
+				<b>Leveraging GANs for data scarcity of COVID-19: Beyond the hype</b> [<a href="data/6_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>DeSRF: Deformable Stylized Radiance Field</b> [<a href="data/17_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>Constructive Assimilation: Boosting Contrastive Learning Performance through View Generation Strategies</b> [<a href="data/27_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>Object-Centric Slot Diffusion for Unsupervised Compositional Generation</b> [<a href="data/33_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>Diversity is Definitely Needed: Improving Model-Agnostic Zero-shot Classification via Stable Diffusion</b> [<a href="data/35_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>Benchmarking Robustness to Text-Guided Corruptions</b> [<a href="data/36_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>Diffusion-Enhanced PatchMatch: A Framework for Arbitrary Style Transfer with Diffusion Models</b> [<a href="data/42_poster.pdf">Poster</a>]<br>
+			</li>
+			<li style="margin-left:30px">
+				<b>Vision + Language Applications: A Survey</b> [<a href="data/49_poster.pdf">Poster</a>]<br>
+			</li>
+                </ul>         
+	</div>
+	
+                    <hr>
+                </div>
+
+<div class="row">
+	
+	
+	
+	
+		
+		
+<h1 style="font-size:30px; color:grey; font-weight: 200">Workshop Organizers</h1>
+
+<div style="text-align: center;">
+
+    <div class="instructor">
+	<a href="https://generativevision.mpi-inf.mpg.de/">
+	    <div><img src="data/adam.jpeg"></div>
+	    <div>
+		<p style = "margin:4px">Adam Kortylewski</p>
+		<p style = "margin:4px">MPI-INF</p>
+	    </div>
+	</a>
+		
+	
+    </div>
+
+
+    <div class="instructor">
+	<a href="https://fnzhan.com/">
+	    <div><img src="data/fangneng.jpeg"></div>
+	    <div>
+		    <p style = "margin:4px">Fangneng Zhan</p>
+		    <p style = "margin:4px">MPI-INF</p>
+	    </div>
+	</a>
+    </div>
+
+
+    <div class="instructor">
+	<a href="https://lingjie0206.github.io/">
+	    <div><img src="data/lingjie.jpeg"></div>
+	    <div>
+		    <p style = "margin:4px">Lingjie Liu</p>
+		    <p style = "margin:4px">UPenn</p>
+	    </div>
+	</a>
+    </div>
+
+    <div class="instructor">
+	<a href="https://www.vincentsitzmann.com/">
+	    <div><img src="data/vincent.jpeg"></div>
+	    <div>
+		    <p style = "margin:4px">Vincent Sitzmann</p>
+		    <p style = "margin:4px">MIT</p>
+	    </div>
+	</a>
+    </div>
+
+    <div class="instructor">
+	<a href="https://www.cs.jhu.edu/~ayuille/">
+	    <div><img src="data/alan.jpeg"></div>
+	    <div>
+		    <p style = "margin:4px">Alan Yuille</p>
+		    <p style = "margin:4px">JHU</p>
+	    </div>
+	</a>
+    </div>
+	
+	
+    <div class="instructor">
+	<a href="https://people.mpi-inf.mpg.de/~theobalt/">
+	    <div><img src="data/christian.png"></div>
+	    <div>
+		    <p style = "margin:4px">Christian Theobalt</p>
+		    <p style = "margin:4px">MPI-INF</p>
+	    </div>
+	</a>
+    </div>
+	
+    <hr>
+
+</div>
+
+	
+	
+
+
+<div class="row">
+        <h1 style="font-size:30px; color:grey; font-weight: 200">Program Committee</h1>
+<!-- 	<div class="large-12 columns" style="text-align:left; column-gap:70px"> -->
+<!-- 		<li style="margin-left:30px"> -->
+<!--                 </li>     -->
+	<div class="column">
+		Angtian	Wang (Johns Hopkins University)<br>
+		Cheng Xinwen (Shanghai JiaoTong University)<br>
+		Guofeng	Zhang (UCLA)<br>
+		Artur Jesslen (University of Freiburg)<br>
+		Jiachen	Sun (University of Michigan)<br>
+		Jiahui Zhang (Nanyang Technological University)<br>
+		Junbo Li (UC Santa Cruz)<br>
+		Kibok Lee (Yonsei University)<br>
+		Kunhao Liu (Nanyang Technological University)<br>
+		Lifeng Huang (SunYat-sen university)<br>
+		Maura Pintor (University of Cagliari)<br>
+		Muyu Xu (Nanyang Technological University)<br>
+	</div>
+	
+<!-- 	<div class="large-12 columns" style="text-align:left; column-gap: 70px"> -->
+	<div class="column">
+		Nataniel Ruiz (Boston University)<br>
+		Pengliang Ji (Beihang University)<br>
+		Rajkumar Theagarajan (University of California, Riverside)<br>
+		Rongliang Wu (Nanyang Technological University)<br>
+		Ruihao Gong (SenseTime)<br>
+		Salah Ghamizi (University of Luxembourg)<br>
+		Tao Li (Shanghai Jiao Tong University)<br>
+		Umar Khalid (University of Central Florida)<br>
+		Weijing	Tao (Nanyang Technological University)<br>
+		Wufei Ma (Johns Hopkins University)<br>
+		Xiaoding Yuan (Johns Hopkins University)<br>
+		Xingjun	Ma (Deakin University)<br>
+	</div>
+
+<div class="row">
+	
+	
+	
+	
+	
+</div>
+	
+	
+	
+
+<hr>
+	
+	
+</div>
+</div>
+		<br>
+		<br>
+		<br>
+	        <br>
+		<br>
+		<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=656565&w=400&t=tt&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI&co=73c5ff'></script>
+<!-- 		<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI'></script> -->
+<!-- 	    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=250&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI'></script> -->
+<!-- 	    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI'></script> -->
+<!-- 	    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=160&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script> -->
+<!-- 	    <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI&cl=ffffff&w=a"></script> -->
+	    
+<!-- 	    	<script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI"></script> -->
+
+</body></html>
