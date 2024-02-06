@@ -1,1 +1,1 @@
-# workshop-CVPR-23
+# workshop-CVPR-24
