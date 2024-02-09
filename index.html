@@ -1,339 +1,339 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!--Open Graph Related Stuff-->
-   <title>Generative Models for Computer Vision</title>
-    <link rel="stylesheet" href="data/foundation.css">
-    <link rel="stylesheet" href="data/main.css">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Generative Models for Computer Vision</title>
 
-<style type="text/css">
-.schedule table {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="CVPR 2024 Workshop">
+    <meta name="keywords" content="bootstrap, business, creative">
+    <meta name="author" content="Createx Studio">
+	  
+	  
+	  
+	  
+    <link rel="icon" href="./assets/img/logo.png">
+	  
+<!--     <meta property="og:image" content="https://fnzhan.github.io/neural-gauge-fields/img/ngf_logo.png"> -->
 
-.schedule tr:hover {
-    background-color: #D3D3D3;
-}
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-.schedule img {
-    max-height: 95px;
-    max-width: 140px;
-    margin-right: 2px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border-radius: 50%;
-}
+    <!-- Favicon and Touch Icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="./assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
-.abstract-content {
-    display: none;
-    padding: 5px;
-}
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="./assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="./assets/vendor/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" media="screen" href="./assets/vendor/lightgallery/css/lightgallery-bundle.min.css"/>
 
-.disclaimer {
-    padding-left: 25px;
-    text-align: left;
-    font-size: 14px;
-    line-height: 16px;
-}
-.disclaimer b {
-    font-weight: bold !important;
-}
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="./assets/css/theme.min.css">
 
-.column {
-  float: left;
-  width: 40%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-  line-height: 23px;
-}
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-	
-</style></head>
+    <!-- Page loading styles -->
+    <style>
+      pre {
+        border: 1px solid #eff2fc;
+        display: none;
+        font-size: 12px;
+        margin: 5px 0;
+        max-width: 96%;
+        overflow: auto;
+        padding: 12px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #131022;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      #tracks ul {
+        line-height: 200%
+      }
+
+      #schedule th.time {
+        width: 200px
+      }
+
+      footer {
+        /*background-color: #131022;*/
+/*         background-image: url(../assets/img/backgrounds/footer-bg.jpg); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+      }
+
+      footer::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: '';
+        background-color: rgba(31, 39, 73, .97);
+      }
+
+      @media only screen and (max-width: 767px) {
+        .swiper-slide-active {
+          padding: 40px;
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== undefined && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  </head>
 
 
-<body class="off-canvas hide-extras" style="min-width:1300px; min-height:750px;">
-   <!-- <header>
-        <div class="row">
-            <a href="https://generative-vision.github.io/workshop-CVPR-23/">
-			<img style="height: 160px; position:absolute; top:280px; right:26px;" src="data/cvpr-2023-logo.jpeg" alt="logo"></a>
-            <h1><img style="height: 200px;" src="./static/eccv2022/img/cvinthewild_logo.jpg" alt="logo" /><br></h1> 
-            <br>
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    
+
+                    <main class="page-wrapper">
+            <section class="jarallax dark-mode bg-dark py-xxl-5" data-jarallax data-speed="0.4">
+                <span class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-dark-translucent"></span>
+                <div class="jarallax-img" style="background-image: url(./data/bg.jpg);"></div>
+                <div class="position-relative text-center zindex-5 ">
+
+
+
+          <p style="font-size:65px; color:rgb(255, 255, 255); font-weight: 65" align="center"><b>Generative Models for Computer Vision</b></p>
+           <p style="font-size:50px; color:rgb(255, 255, 255); font-weight: 50" align="center">CVPR 2024 Workshop</p><br>
+          <p class="fs-4 text-light opacity-70 pb-2 mb-lg-5">
+                          <span style="font-size:1.3rem"> <i class="fa fa-calendar" style="color:#f029cf"></i> Monday, Jun 17th, 2024  &nbsp; &nbsp; &nbsp;
+                            <i class="fa fa-map-marker" style="color:#f029cf"></i> Seattle, USA </span>
+                        </p>
+          
         </div>
-    </header>-->
-
-    <section role="main" style="padding: 1em;">
+      </section>
+      <!-- tracks -->
+      <section id="tracks" class="container py-5">
+<!--         <div class="row pt-4 pb-3">
+          <h2 class="text-center text-sm-start pb-2 pb-lg-0">Challenge Tracks</h2>
+        </div> -->
         <div class="row">
-            <p style="font-size:50px; color:black; font-weight: 50" align="center">Generative Models for Computer Vision
-                <br>
-                <span style="font-size:30px; color:black; font-weight: 50" align="center">CVPR 2024, June 17th<br> </span>
-
-<!--                  <span style="font-size:20px; color:gray; font-weight: 30" align=center>9:00am-6:00pm Israeli Time  ||  11:00pm (October 22)-8:00am Pacific Time  ||  2:00pm-11:00pm Beijing Time</span>   -->             
-                <!-- <br> -->
-                <!-- <br> -->
-                <!-- <span style="font-size:20px; color:black; font-weight: 400" align=center>Zoom and Gatherly links on ECCV 2022 website: <a target="_blank" href="https://www.eventscribe.net/2021/2021CVPR/agenda.asp?startdate=6/19/2021&enddate=6/19/2021&BCFO=M&pfp=Workshops&mode=&tn=&cpftwo=&custwo=&pta=/">Link</a> <br> Navigate to: Workshops -> Sat, October 23 -> Search for "Computer Vision in the Wild" workshop entry</b></span> -->
-
+	  <div class="row pt-4 pb-3">
+            <h2 class="text-center text-sm-start pb-2 pb-lg-0">Overview</h2>
+          </div>
+          <!-- Item -->
+<!--           <h3>Overview</h3> -->
+          <div class="col">
+            <p align="justify">
+                Recent advances in generative modeling leveraging generative adversarial networks, auto-regressive models,
+                neural fields and diffusion models have enabled the synthesis of near photorealistic images, drastically
+                increasing the visibility and popularity of generative modeling across the computer vision research community.
+                However, these impressive advances in generative modeling have not yet found wide adoption in computer vision
+                for visual recognition tasks. In this workshop, we aim to bring together researchers from the fields of image
+                synthesis and computer vision to facilitate discussions and progress at the intersection of those two subfields.
+                We investigate the question: "How can visual recognition benefit from the advances in generative image modeling?".
+                We invite a diverse set of experts to discuss their recent research results and future directions for generative
+                modeling and computer vision, with a particular focus on the intersection between image synthesis and visual
+                recognition. We hope this workshop will lay the foundation for future development of generative models for
+                computer vision tasks.
             </p>
+		  
+            <div style="text-align: center;">
+		<img src="./data/overview.jpg" width="1200">
+	    </div>
+          </div>
 
-	<div class="row">
-                <h1 style="font-size:30px; color:grey; font-weight: 200">Invited Speakers</h1>
-<!--                 <img src="data/speakers.jpg" > -->
+
         </div>
+      </section>
+	    
+	    
+      <!-- Speakers -->
+      <section id="speakers" class="container py-5">
+        <div class="row pt-4 pb-3">
+          <h2 class="text-center text-sm-start pb-2 pb-lg-0">Invited Speakers</h2>
+        </div>
+        <div class="row justify-content-center">
+
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/jiajun.jpg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a></h5>
+                  <p class="fs-sm mb-3">Stanford University</p>
+                </div>
+              </div>
+
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/katerina.jpg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://www.cs.cmu.edu/~katef/" target="_blank">Katerina Fragkiadaki</a></h5>
+                  <p class="fs-sm mb-3">CMU</p>
+                </div>
+              </div>
 		
-	    <div style="text-align: center;">
-
-	    <div class="instructor2">
-		<a href="https://www.cs.cmu.edu/~katef/">
-		    <!--<div><img src="data/phillip.png"></div>-->
-		    <div>
-			<p style = "margin:4px">Katerina Fragkiadaki,</p>
-			<p style = "margin:4px">CMU</p>
-		    </div>
-		</a>
-	    </div>
-
-
-	    <div class="instructor2">
-		<a href="https://faculty.cc.gatech.edu/~parikh/">
-		    <!--<div><img src="data/angjoo.jpeg"></div>-->
-		    <div>
-			    <p style = "margin:4px">Devi Parikh,</p>
-			    <p style = "margin:4px">Gerogia Tech</p>
-		    </div>
-		</a>
-	    </div>
-
-
-	    <div class="instructor2">
-		<a href="https://jiajunwu.com/">
-		    <!--<div><img src="data/rupprecht.jpeg"></div>-->
-		    <div>
-			    <p style = "margin:4px">Jiajun Wu</p>
-			    <p style = "margin:4px">Stanford University</p>
-		    </div>
-		</a>
-	    </div>			
-			
-	    <div class="instructor2">
-		<a href="https://www.cs.jhu.edu/~ayuille/">
-		    <!--<div><img src="data/alan.jpeg"></div>-->
-		    <div>
-			    <p style = "margin:4px">Alan Yuille</p>
-			    <p style = "margin:4px">JHU</p>
-		    </div>
-		</a>
-	    </div>
-
-	    <div class="instructor2">
-		<a href="https://federicotombari.github.io/">
-		    <!--<div><img src="data/shubham.jpg"></div>-->
-		    <div>
-			    <p style = "margin:4px">Federico Tombari</p>
-			    <p style = "margin:4px">Google</p>
-		    </div>
-		</a>
-	    </div>
-			
-			
-
-			
-			
-	
-			<br>
-			<br>
-
-
-			
-	    <div class="instructor2">
-		<a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">
-		   <!--  <div><img src="data/vincent.jpeg"></div>-->
-		    <div>
-			    <p style = "margin:4px">Siyu Tang</p>
-			    <p style = "margin:4px">ETH Zurich</p>
-		    </div>
-		</a>
-	    </div>	
-			
-				
-	    <div class="instructor2">
-		<a href="https://jamie.shotton.org/">
-		    <!-- <div><img src="data/andrea.png"></div>-->
-		    <div>
-			    <p style = "margin:4px">Jamie Shotton</p>
-			    <p style = "margin:4px">Wayve</p>
-		    </div>
-		</a>
-	    </div>				
-
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/devi.jpg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://faculty.cc.gatech.edu/~parikh/" target="_blank">Devi Parikh</a></h5>
+                  <p class="fs-sm mb-3">Gerogia Tech</p>
+                </div>
+              </div>
 		
-		    
-	<hr>	    
-	<br>
-			
-			
-	<div style="text-align: left;">
-			
-			
-			
-<!-- 	<div class="row"> -->
-
-
-        <div class="row">
-            <h1 style="font-size:30px; color:grey; font-weight: 200">Overview</h1>
-            <div class="large-12 columns" style="text-align:left;">
-<!--                 <p style="font-size:15px; font-weight: 400; text-align:left">   -->
-	    	
-		<p style="font-size:15px; font-weight: 400; text-align:justify" align="justify">
-Recent advances in generative modeling leveraging generative adversarial networks, auto-regressive models, neural fields and diffusion 
-			models have enabled the synthesis of near photorealistic images, drastically increasing the visibility and popularity 
-			of generative modeling across the computer vision research community. However, these impressive advances in generative 
-			modeling have not yet found wide adoption in computer vision for visual recognition tasks. In this workshop, we aim to 
-			bring together researchers from the fields of image synthesis and computer vision to facilitate discussions and progress 
-			at the intersection of those two subfields. We investigate the question: "How can visual recognition benefit from the advances 
-			in generative image modeling?". We invite a diverse set of experts to discuss their recent research results and future directions 
-			for generative modeling and computer vision, with a particular focus on the intersection between image synthesis and visual 
-			recognition. We hope this workshop will lay the foundation for future development of generative models for computer vision tasks.
-                </p>
-				
-            </div>
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/federico.png" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://federicotombari.github.io/" target="_blank">Federico Tombari</a></h5>
+                  <p class="fs-sm mb-3">Google</p>
+                </div>
+              </div>
 		
-	<div style="text-align: center;">
-		<img src="data/overview.jpg" width="850"><br>
-	</div>
-		
-	<hr>	
-	</div>
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/siyu.jpg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html" target="_blank">Siyu Tang</a></h5>
+                  <p class="fs-sm mb-3">ETH Zurich</p>
+                </div>
+              </div>
 		
 		
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/jamie.jpg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://jamie.shotton.org/" target="_blank">Jamie Shotton</a></h5>
+                  <p class="fs-sm mb-3">Wayve</p>
+                </div>
+              </div>
+
 		
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/alan.jpeg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://cseweb.ucsd.edu/~haosu/" target="_blank">Alan Yuille</a></h5>
+                  <p class="fs-sm mb-3">JHU</p>
+                </div>
+              </div>
 
-<!-- <div style="text-align: left;"> -->
 
-<div class="row">
-		<h1 style="font-size:30px; color:grey; font-weight: 200">Preliminary Schedule</h1>
-TBD
-<!--
-	<div class="large-12 columns" style="text-align:left;">
-<table>
-<thead>
-<tr>
-<th>18th of June, UTC-7</th>
-<th> </th>
-<th> </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>8:30</td>
-<td><strong>Opening</strong></td>
-<td>Adam Kortylewski</td>
-</tr>
-<tr>
-<td>8:45</td>
-<td><strong>Invited talk #1</strong></td>
-<td>Alan Yuille: Analysis by Synthesis</td>
-</tr>
-<tr>
-	<td>9:15</td>
-	<td><strong>Invited talk #2</strong></td>
-	<td>Angjoo Kanazawa: Editing 3D Scenes and Modeling 3D Social Proxemics with Generative Models</td>
-	</tr>
-<tr>
-<td>9:45</td>
-<td><strong>Invited talk #3</strong></td>
-<td>Björn Ommer: Why This is (Not) the End of Research in Generative AI: Stable Diffusion & the Revolution in Visual Synthesis</td>
-</tr>	  
-<tr>
-<td>10:15</td>
-<td><strong>Coffee Break</strong></td>
-</tr>
-<tr>
-<td>10:30</td>
-<td><strong>Invited talk #4</strong></td>
-<td>Andrea Tagliasacchi</td>
-</tr>
-<tr>
-<td>11:00</td>
-<td><strong>Invited talk #5</strong></td>
-<td>Gordon Wetzstein: A Trip Down the Generative Graphics Pipeline</td>
-</tr>
-<tr>
-	<td>11:30</td>
-	<td><strong>Panel Discussion #1</strong></td>
-	<td>Invited Speakers #1 - #5</td>
-	</tr>
-<tr>
-<td>12:00</td>
-<td><strong>Lunch Break</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>12:45</td>
-<td><strong>Poster Session</strong></td>
-<td>West Building Poster 39 - 72</td>
-</tr>
-<tr>
-<td>13:45</td>
-<td><strong>Invited talk #6</strong></td>
-<td>Angela Dai</td>
-</tr>
-<tr>
-	<td>14:15</td>
-	<td><strong>Invited talk #7</strong></td>
-	<td>Phillip Isola: Generative Models as Data++</td>
-	</tr>
-<tr>
-<td>14:45</td>
-<td><strong>Invited talk #8</strong></td>
-<td>Vincent Sitzmann</td>
-</tr>
-<tr>
-<td>15:15</td>
-<td><strong>Coffee Break</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>15:45</td>
-<td><strong>Invited talk #9</strong></td>
-<td>Christian Rupprecht: Extracting Supervision from Generative Models</td>
-</tr>
-<tr>
-<td>16:15</td>
-<td><strong>Invited talk #10</strong></td>
-<td>Shubham Tulsiani: A Probabilistic Approach to 3D Inference</td>
-</tr>
-<tr>
-<td>16:45</td>
-<td><strong>Panel Discussion #2</strong></td>
-<td>Invited Speakers #6 - #10</td>
-</tr>
-<tr>	
-<td>17:15</td>
-<td><strong>Closing Remarks</strong></td>
-<td>Adam Kortylewski</td>
-</tr>
-</tbody>
-</table>
-</div>
-	<hr>
-</div>
-	 -->	
 
-<div class="row">
-                    <h1 style="font-size:30px; color:grey; font-weight: 200">Call for Papers</h1>
-	<div class="large-12 columns" style="text-align:left;">
+      <section id="submission" class="container py-5">
+          <div class="row pt-4 pb-3">
+            <h2 class="text-center text-sm-start pb-2 pb-lg-0">Call for Papers</h2>
+          </div>
+          <div class="row">
+            <div class="col">
 		    <ul style="font-size:15px;">
 			    <b>Submission site:</b> TBD <!-- <a href="https://cmt3.research.microsoft.com/GCV2023/">https://cmt3.research.microsoft.com/GCV2023/</a>. --><br>
 			    <b>Author kit:</b> <a href="https://github.com/cvpr-org/author-kit/archive/refs/tags/CVPR2024-v2.zip">CVPR Author KIT</a>.<br>
 			    We invite submissions of both <b>short and long papers</b> (4 pages and 8 pages respectively excluding references). The long papers will be included in the proceedings of CVPR. Potential topics include but are not limited to:
                         <br>
-                    
+
                         <li style="margin-left:30px">
                             Advances in generative image models
                         </li>
@@ -354,194 +354,241 @@ TBD
                         </li>
                         <li style="margin-left:30px">
                             Adversarial attacks and defenses with generative models
-                        </li>						
+                        </li>
                         <li style="margin-left:30px">
                             Out-of-distribution generalization and detection with generative models
                         </li>
                         <li style="margin-left:30px">
                             Ethical considerations in generative modeling, dataset and model biases
-                        </li>						
-                </ul>         
-	</div>
-		
-                    <div class="large-12 columns" style="text-align:left;">
-                        <div class="large-12 columns" style="text-align:left;">
-                            <p style="font-size:15px; font-weight: 200; border-style: solid;
-                                          border-width: 1px; text-align:justify; padding:5px; width:85%">
-                                <code>
-								 <!-- <span style="width:40%; margin:5px; display:inline-block;">TBA</span>-->
-								<span style="width:40%; margin:5px; display:inline-block;">Paper Submission Deadline</span>
-                                        <span style="display:inline-block; margin-left:10px;">11:59 PM, April 1 (Anywhere on Earth)</span><br>
- 								<span style="width:40%; margin:5px; display:inline-block;">Decisions</span>
-                                        <span style="display:inline-block; margin-left:10px;">11:59 PM, April 9 (Anywhere on Earth)</span><br>
-        					<span style="width:40%; margin:5px; display:inline-block;">Camera-Ready</span>
-                                        <span style="display:inline-block; margin-left:10px;">11:59 PM, April 14 (Anywhere on Earth)</span><br>
-                                    </code></p>
-                        </div>
-                    </div>
-                    <hr>
+                        </li>
+                </ul>
+
+                <br>
+              </div>
+        </div>
+
+<!--        </div>-->
+      </section>
+
+
+
+            <section id="dates" class="container py-5">
+        <div class="row pt-4 pb-3">
+          <div class="col-12">
+            <h2 class="text-center text-sm-start pb-2 pb-lg-0 mb-4 mb-lg-5">Important Dates</h2>
+          </div>
+<!--           <div class="col-lg-2 mb-3">
+            <div class="nav flex-nowrap flex-lg-column nav-tabs" role="tablist" aria-orientation="vertical">
+              <a href="#workshop" class="nav-link d-block w-100 rounded-3 p-4" id="workshop-tab" data-bs-toggle="tab" role="tab" aria-controls="workshop" aria-selected="false">
+                <div class="fs-3 fw-bold">Workshop</div>
+              </a>
+            </div>
+          </div> -->
+          <div class="col-lg-9 offset-lg-1">
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <!-- Workshop -->
+              <div class="tab-pane fade show active" id="workshop" role="tabpanel" aria-labelledby="workshop-tab">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="event">Event</th>
+                        <th class="date">Date (Anywhere on Earth)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Workshop paper submission deadline</th>
+                        <td>March 20, 2024</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Decisions</th>
+                        <td>April 1, 2024</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Camera ready</th>
+                        <td>April 7, 2024</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+              </div>
 
-<div class="row">
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="schedule" class="container py-5">
+          <div class="row pt-4 pb-3">
+            <h2 class="text-center text-sm-start pb-2 pb-lg-0">Schedule</h2>
+          </div>
+          <p>--TBD--</p>
+      </section>
+
+
+      <!-- Organizers -->
+      <section id="organizers" class="container py-5">
+	      
+        <div class="container">
+          <div class="row pt-4 pb-3">
+            <h2 class="text-center text-sm-start pb-2 pb-lg-0">Organizers</h2>
+          </div>
 		
+          <div class="row justify-content-center">
+
+              <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/adam.jpeg" class="d-block rounded-circle mx-auto mb-3" width="162" alt="Ralph Edwards">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://gvrl.mpi-inf.mpg.de/" target="_blank">Adam Kortylewski</a></h5>
+                  <p class="fs-sm mb-3">MPI-INF & Uni of Freiburg</p>
+                </div>
+              </div>
+
+              <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/fangneng.jpg" class="d-block rounded-circle mx-auto mb-3" width="162" alt="Ralph Edwards">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://fnzhan.com/" target="_blank">Fangneng Zhan</a></h5>
+                  <p class="fs-sm mb-3">MPI-INF</p>
+                </div>
+              </div>
+
+              <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/lingjie.jpeg" class="d-block rounded-circle mx-auto mb-3" width="162" alt="Ralph Edwards">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://lingjie0206.github.io/" target="_blank">Lingjie Liu</a></h5>
+                  <p class="fs-sm mb-3">UPenn</p>
+                </div>
+              </div>
+
+		  
+	      <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/niemeyer.jpg" class="d-block rounded-circle mx-auto mb-3" width="162" alt="Ralph Edwards">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://m-niemeyer.github.io/" target="_blank">Michael Niemeyer</a></h5>
+                  <p class="fs-sm mb-3">Google</p>
+                </div>
+              </div>
+
+              <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/oechsle.jpg" class="d-block rounded-circle mx-auto mb-3" width="162" alt="Ralph Edwards">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://moechsle.github.io/" target="_blank">Michael Oechlse</a></h5>
+                  <p class="fs-sm mb-3">Google</p>
+                </div>
+              </div>
+
+
+              <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/christian.png" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://people.mpi-inf.mpg.de/~theobalt/" target="_blank">Christian Theobalt</a></h5>
+                  <p class="fs-sm mb-3">MPI-INF</p>
+                </div>
+              </div>
+
+
+	        <div class="col-md-3 py-3">
+                <div class="card card-body card-hover bg-light border-0 text-center mx-2">
+                  <img src="./data/alan.jpeg" class="d-block rounded-circle mx-auto mb-3" width="162">
+                  <h5 class="fw-medium fs-lg mb-1"><a style="text-decoration:none" href="https://cseweb.ucsd.edu/~haosu/" target="_blank">Alan Yuille</a></h5>
+                  <p class="fs-sm mb-3">JHU</p>
+                </div>
+              </div>
+
+          </div>
 		
-		
-
-	
-	
-	
-	
-		
-		
-<h1 style="font-size:30px; color:grey; font-weight: 200">Workshop Organizers</h1>
-
-<div style="text-align: center;">
-
-    <div class="instructor">
-	<a href="https://generativevision.mpi-inf.mpg.de/">
-	    <div><img src="data/adam.jpeg"></div>
-	    <div>
-		<p style = "margin:4px">Adam Kortylewski</p>
-		<p style = "margin:4px">MPI-INF</p>
-	    </div>
-	</a>
-		
-	
-    </div>
-
-
-    <div class="instructor">
-	<a href="https://fnzhan.com/">
-	    <div><img src="data/fangneng.jpg"></div>
-	    <div>
-		    <p style = "margin:4px">Fangneng Zhan</p>
-		    <p style = "margin:4px">MPI-INF</p>
-	    </div>
-	</a>
-    </div>
-
-
-    <div class="instructor">
-	<a href="https://lingjie0206.github.io/">
-	    <div><img src="data/lingjie.jpeg"></div>
-	    <div>
-		    <p style = "margin:4px">Lingjie Liu</p>
-		    <p style = "margin:4px">UPenn</p>
-	    </div>
-	</a>
-    </div>
-
-    <div class="instructor">
-	<a href="https://m-niemeyer.github.io/">
-	    <div><img src="data/niemeyer.jpg"></div>
-	    <div>
-		    <p style = "margin:4px">Michael Niemeyer</p>
-		    <p style = "margin:4px">Google</p>
-	    </div>
-	</a>
-    </div>
-
-	<div class="instructor">
-	<a href="https://moechsle.github.io/">
-	    <div><img src="data/oechsle.jpg"></div>
-	    <div>
-		    <p style = "margin:4px">Michael Oechlse</p>
-		    <p style = "margin:4px">Google</p>
-	    </div>
-	</a>
-    </div>
-<br>
-	<div class="instructor">
-	<a href="https://people.mpi-inf.mpg.de/~theobalt/">
-	    <div><img src="data/christian.png"></div>
-	    <div>
-		    <p style = "margin:4px">Christian Theobalt</p>
-		    <p style = "margin:4px">MPI-INF</p>
-	    </div>
-	</a>
-    </div>
-
-    <div class="instructor">
-	<a href="https://www.cs.jhu.edu/~ayuille/">
-	    <div><img src="data/alan.jpeg"></div>
-	    <div>
-		    <p style = "margin:4px">Alan Yuille</p>
-		    <p style = "margin:4px">JHU</p>
-	    </div>
-	</a>
-    </div>
-	
-	
-
-	
-    <hr>
-
-</div>
-
-	
-	
-
-<!--
-<div class="row">
-        <h1 style="font-size:30px; color:grey; font-weight: 200">Program Committee</h1>
-	<div class="column">
-		Angtian	Wang (Johns Hopkins University)<br>
-		Cheng Xinwen (Shanghai JiaoTong University)<br>
-		Guofeng	Zhang (UCLA)<br>
-		Artur Jesslen (University of Freiburg)<br>
-		Jiachen	Sun (University of Michigan)<br>
-		Jiahui Zhang (Nanyang Technological University)<br>
-		Junbo Li (UC Santa Cruz)<br>
-		Kibok Lee (Yonsei University)<br>
-		Kunhao Liu (Nanyang Technological University)<br>
-		Lifeng Huang (SunYat-sen university)<br>
-		Maura Pintor (University of Cagliari)<br>
-		Muyu Xu (Nanyang Technological University)<br>
-	</div>
-	
-	<div class="column">
-		Nataniel Ruiz (Boston University)<br>
-		Pengliang Ji (Beihang University)<br>
-		Rajkumar Theagarajan (University of California, Riverside)<br>
-		Rongliang Wu (Nanyang Technological University)<br>
-		Ruihao Gong (SenseTime)<br>
-		Salah Ghamizi (University of Luxembourg)<br>
-		Tao Li (Shanghai Jiao Tong University)<br>
-		Umar Khalid (University of Central Florida)<br>
-		Weijing	Tao (Nanyang Technological University)<br>
-		Wufei Ma (Johns Hopkins University)<br>
-		Xiaoding Yuan (Johns Hopkins University)<br>
-		Xingjun	Ma (Deakin University)<br>
-	</div>
-
-<div class="row">
--->	
-	
-	
-	
-	
-</div>
-	
-	
-	
-
-<hr>
-	
-	
-</div>
-</div>
-		<br>
-		<br>
-		<br>
-	        <br>
-		<br>
-		<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=656565&w=400&t=tt&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI&co=73c5ff'></script>
-<!-- 		<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI'></script> -->
-<!-- 	    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=250&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI'></script> -->
-<!-- 	    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI'></script> -->
-<!-- 	    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=160&t=n&d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script> -->
-<!-- 	    <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI&cl=ffffff&w=a"></script> -->
+        </div>
+      </section>
 	    
-<!-- 	    	<script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=pa5MCNZnvFjNm_hrbI6_4n6zYKb35I870KvtRZOaBbI"></script> -->
+	    
 
-</body></html>
+
+
+      <br>
+      <br>
+      <br>
+<!--      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=84848c&w=400&t=tt&d=2JHVvnU97UBcQG0xYLAvglePjkssjDLpbeRhZQhM_1s&co=a1cded&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>-->
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=474747&w=386&t=n&d=_KRcvWlAZADIQTJh5QCVWaDrwAtwPMAffAZq-yBjTao&co=85bde5'></script>
+      <br>
+      <br>
+      <br>
+
+
+
+
+
+    <style>
+      .img-container {
+        text-align: center;
+        display: block;
+      }
+    </style>
+
+<!--   <br> -->
+  
+
+
+  </main>
+    <!-- Footer -->
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/vendor/lightgallery/lightgallery.min.js"></script>
+    <script src="./assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script src="./assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="./assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="./assets/js/theme.min.js"></script>
+    <script>
+      document.addEventListener('scroll', function(e) {
+        let currentOffset = window.scrollY + 80,
+            currentSection = "",
+            sections = ["tracks", "submission", "dates", "schedule", "speakers", "organizers", "awards", "previous"];
+
+        for (let i = 0; i < sections.length; ++ i) {
+          if (currentOffset < document.getElementById(sections[i]).offsetTop) {
+            break;
+          }
+          currentSection = sections[i];
+        }
+
+        let navbar = document.getElementsByClassName("navbar-nav")[0],
+            navLinks = navbar.getElementsByTagName("a");
+
+        for (let i = 0; i < navLinks.length; ++ i) {
+          navLinks[i].classList.remove("active");
+          if (navLinks[i].getAttribute("href") == "#" + currentSection) {
+            navLinks[i].classList.add("active");
+          }
+        }
+      })
+    </script>
+    <script type="text/javascript">
+      $('#schedule').on('click', '.abstract', function () {
+          var bibtexBlock = $('pre', $(this).parent().parent().parent()),
+              isVisible = bibtexBlock.is(':visible')
+            
+          if (isVisible) {
+              bibtexBlock.slideUp(36)
+          } else {
+              bibtexBlock.slideDown(36)
+          }
+      })
+      </script>
+
+    </body>
+</html>
